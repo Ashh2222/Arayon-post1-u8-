@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Productos Filtrados</title></head>
+<body>
+<h1>Productos de <span th:text="${categoria.nombre}"></span> con precio mayor a <span th:text="${minimo}"></span></h1>
+<a th:href="@{/productos}">&larr; Volver a todos los productos</a>
+<table>
+    <thead>
+    <tr><th>Nombre</th><th>Precio</th><th>Stock</th></tr>
+    </thead>
+    <tbody>
+    <tr th:each="p : ${productos}">
+        <td th:text="${p.nombre}"></td>
+        <td th:text="${p.precio}"></td>
+        <td th:text="${p.stock}"></td>
+    </tr>
+    <tr th:if="${#lists.isEmpty(productos)}">
+        <td colspan="3" style="text-align:center">No hay productos que coincidan.</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
