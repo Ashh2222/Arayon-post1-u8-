@@ -3,6 +3,7 @@
 <head><title>Categorías</title></head>
 <body>
 <h1>Lista de Categorías</h1>
+<p th:if="${error}" style="color:red" th:text="${error}"></p>
 <a th:href="@{/categorias/nuevo}">Nueva Categoría</a>
 <table>
     <thead>
